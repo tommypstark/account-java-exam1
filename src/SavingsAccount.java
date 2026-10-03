@@ -14,7 +14,7 @@ public class SavingsAccount extends Account {
     @Override
     public void printInfo() {
         super.printInfo();
-        System.out.println("Räntesats: " + interestRate);
+        System.out.print(" | Räntesats: " + interestRate);
     }
 
 }

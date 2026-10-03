@@ -31,7 +31,7 @@ public class Account {
     }
 
     public void printInfo() {
-        System.out.println("Ägare: " + owner + " | Saldo: " + balance);
+        System.out.print("Ägare: " + owner + " | Saldo: " + balance);
     }
 
 }

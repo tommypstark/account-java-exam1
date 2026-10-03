@@ -18,12 +18,35 @@ public class Main {
             scanner.nextLine();
 
             if (choice == 1) {
-                System.out.print("Ägare: ");
-                String name = scanner.nextLine();
-                System.out.print("Startsaldo: ");
-                double startBalance = scanner.nextDouble();
+                System.out.println("Vilken kontotyp vill du skapa?");
+                System.out.println("1. Vanligt konto");
+                System.out.println("2. Sparkonto");
+
+                int accountType = scanner.nextInt();
                 scanner.nextLine();
-                register.createAccount(name, startBalance);
+
+                if (accountType != 1 && accountType != 2) {
+                    System.out.println("Felaktigt val. Var god försök igen.");
+
+                } else {
+                    System.out.print("Ägare: ");
+                    String name = scanner.nextLine();
+
+                    System.out.print("Startsaldo: ");
+                    double startBalance = scanner.nextDouble();
+                    scanner.nextLine();
+
+                    if (accountType == 1) {
+                        register.createAccount(name, startBalance);
+
+                    } else {
+                        System.out.print("Räntesats som decimal (t.ex. 0.05 för 5%): ");
+                        double interestRate = scanner.nextDouble();
+                        scanner.nextLine();
+
+                        register.createSavingsAccount(name, startBalance, interestRate);
+                    }
+                }
 
             } else if (choice == 2) {
                 register.printAll();
