@@ -9,6 +9,12 @@ public class AccountRegister {
         accounts.add(account);
     }
 
+    public SavingsAccount createSavingsAccount(String owner, double startBalance, double interestRate) {
+        SavingsAccount created = new SavingsAccount(owner, startBalance, interestRate);
+        accounts.add(created);
+        return created;
+    }
+
     public Account findAccount(String owner) {
         for (int i = 0; i < accounts.size(); i++) {
             Account a = accounts.get(i);
@@ -24,7 +30,7 @@ public class AccountRegister {
     public void printAll() {
         for (int i = 0; i < accounts.size(); i++) {
             Account a = accounts.get(i);
-            System.out.println("Konto: " + a.getOwner() + " | Balance: " + a.getBalance());
+            a.printInfo();
         }
     }
 

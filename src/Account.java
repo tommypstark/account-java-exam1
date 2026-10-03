@@ -21,11 +21,17 @@ public class Account {
     }
 
     public void withdraw(double amount) {
+
         if (amount > balance) {
             System.out.println("Otillräcklig täckning på kontot.");
+
         } else {
             balance -= amount;
         }
+    }
+
+    public void printInfo() {
+        System.out.println("Ägare: " + owner + " | Saldo: " + balance);
     }
 
 }

@@ -18,7 +18,7 @@ public class Main {
             scanner.nextLine();
 
             if (choice == 1) {
-                System.out.print("Namn: ");
+                System.out.print("Ägare: ");
                 String name = scanner.nextLine();
                 System.out.print("Startsaldo: ");
                 double startBalance = scanner.nextDouble();
