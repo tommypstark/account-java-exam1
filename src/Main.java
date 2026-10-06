@@ -36,7 +36,10 @@ public class Main {
                     double startBalance = scanner.nextDouble();
                     scanner.nextLine();
 
-                    if (accountType == 1) {
+                    if (startBalance < 0) {
+                        System.out.println("Startsaldo kan inte vara negativt.");
+
+                    } else if (accountType == 1) {
                         register.createAccount(name, startBalance);
 
                     } else {
@@ -61,7 +64,7 @@ public class Main {
                     double amount = scanner.nextDouble();
                     scanner.nextLine();
                     found.deposit(amount);
-                    System.out.println("Nytt saldo: " + found.getBalance());
+                    System.out.println("Saldo: " + found.getBalance());
 
                 } else {
                     System.out.println("Konto saknas: " + name);
@@ -77,7 +80,7 @@ public class Main {
                     double amount = scanner.nextDouble();
                     scanner.nextLine();
                     found.withdraw(amount);
-                    System.out.println("Nytt saldo: " + found.getBalance());
+                    System.out.println("Saldo: " + found.getBalance());
 
                 } else {
                     System.out.println("Konto saknas: " + name);
