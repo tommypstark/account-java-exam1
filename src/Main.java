@@ -47,7 +47,29 @@ public class Main {
                         double interestRate = scanner.nextDouble();
                         scanner.nextLine();
 
-                        register.createSavingsAccount(name, startBalance, interestRate);
+                        SavingsAccount created = register.createSavingsAccount(name, startBalance, interestRate);
+
+                        System.out.print("Vill du lägga på ränta nu? (1 = Ja, 2 = Nej): ");
+                        int interestChoice = scanner.nextInt();
+                        scanner.nextLine();
+
+                        while (interestChoice != 1 && interestChoice != 2) {
+                            System.out.println("Felaktigt val. Skriv 1 eller 2.");
+                            System.out.print("Vill du lägga på ränta nu? (1 = Ja, 2 = Nej): ");
+                            interestChoice = scanner.nextInt();
+                            scanner.nextLine();
+                        }
+
+                        if (interestChoice == 1) {
+                            double oldBalance = created.getBalance();
+
+                            created.applyInterest();
+
+                            double interest = created.getBalance() - oldBalance;
+
+                            System.out.println("Ränta: " + interest);
+                            System.out.println("Nytt saldo: " + created.getBalance());
+                        }
                     }
                 }
 
